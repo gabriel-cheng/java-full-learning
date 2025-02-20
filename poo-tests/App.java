@@ -8,15 +8,19 @@ class AccountBank implements Account {
 
     public void depositMoney(double value) {
         this.balance += value;
+
+        System.out.printf("New added value: %s \n\n", value);
     }
 
     public void withdrawMoney(double value) {
         if(value > this.balance) {
-            System.out.println("You can't withdraw this amount due to lack of funds.");
+            System.out.println("You can't withdraw this amount due to lack of funds. \n");
 
             return;
         } else {
             this.balance -= value;
+
+            System.out.printf("Withdrawn: %s \nRemaining: %s", value, balance);
         }
     }
 
@@ -25,13 +29,17 @@ class AccountBank implements Account {
     }
 }
 
+class InternationalBankAccount extends AccountBank {
+    public void showMessage() {
+        System.out.println("Hello, worlds!");
+    }
+}
+
 public class App {
     public static void main(String[] args) {
-        AccountBank account = new AccountBank();
+        InternationalBankAccount account = new InternationalBankAccount();
 
-        account.depositMoney(100);
-        account.withdrawMoney(20);
-        
-        System.out.printf("Current balance bank: %s", account.getBalance());
+        account.depositMoney(1000);
+        account.withdrawMoney(200);
     }
 }
