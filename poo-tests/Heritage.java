@@ -35,7 +35,7 @@ class InternationalBankAccount extends AccountBank {
     }
 }
 
-public class App {
+public class Heritage {
     public static void main(String[] args) {
         InternationalBankAccount account = new InternationalBankAccount();
 
